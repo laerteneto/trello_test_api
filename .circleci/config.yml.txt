@@ -1,11 +1,8 @@
-version: 2.1
-orbs:
-  newman: postman/newman@0.0.2
-jobs:
-  build:
-    executor: newman/postman-newman-docker
-    steps:
-      - checkout
-      - newman/newman-run:
-          collection: ./tests/PostmanTrelloCollections.json
-          environment: ./tests/TrelloEnv.json
+ version: 2
+ jobs:
+   build:
+     docker:
+       - image: circleci/ruby:2.4.1
+     steps:
+       - checkout
+       - run: echo "A first hello"
