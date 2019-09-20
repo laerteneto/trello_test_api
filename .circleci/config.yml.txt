@@ -6,6 +6,7 @@ build:
 executor: newman/postman-newman-docker
 steps:
 - checkout
+- run: echo "A first hello"
 - newman/newman-run:
 collection: ./tests/PostmanTrelloCollections.json
 environment: ./tests/TrelloEnv.json
