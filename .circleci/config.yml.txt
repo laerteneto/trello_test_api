@@ -1,16 +1,11 @@
-{
-  "newman": "postman/newman@0.0.2", 
-  "jobs": null, 
-  "orbs": null, 
-  "collection": "./tests/PostmanTrelloCollections.json", 
-  "environment": "./tests/TrelloEnv.json", 
-  "version": 2.1, 
-  "steps": [
-    "checkout", 
-    {
-      "newman/newman-run": null
-    }
-  ], 
-  "build": null, 
-  "executor": "newman/postman-newman-docker"
-}
+version: 2.1
+orbs:
+newman: postman/newman@0.0.2
+jobs:
+build:
+executor: newman/postman-newman-docker
+steps:
+- checkout
+- newman/newman-run:
+collection: ./tests/PostmanTrelloCollections.json
+environment: ./tests/TrelloEnv.json
